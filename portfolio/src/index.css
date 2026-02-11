@@ -58,6 +58,11 @@
   }
 }
 
+::selection{
+  background-color: #60A5FA;
+  color: white
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -1,17 +1,44 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Sparkles } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, KeyboardIcon, Instagram } from "lucide-react";
 import { Button } from "../../src/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../src/components/ui/card";
 import { Badge } from "../../src/components/ui/badge";
 import { Input } from "../../src/components/ui/input";
 import { Textarea } from "../../src/components/ui/textarea";
+import emailjs from "@emailjs/browser";
 
 export default function Portfolio() {
+
   const [activeSection, setActiveSection] = useState("home");
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+
+  const form = useRef<HTMLFormElement>(null);
+
+  // chemi
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs.sendForm(
+      "service_i3i40de",
+      "template_ykvymxb",
+      form.current,
+      "jfR4N5G8bAG3nMgJm"
+    ).then(
+      (result) => {
+        console.log(result.text);
+        form.current?.reset();
+      },
+      (error) => {
+        console.log(error.text);
+        alert("Something went wrong. Please try again.");
+      }
+    );
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,46 +76,25 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "Analytics Dashboard",
-      description: "A comprehensive web dashboard for data visualization and analytics with real-time updates and interactive charts.",
-      image: "https://mgx-backend-cdn.metadl.com/generate/images/964620/2026-02-11/f5dbd383-e051-4275-8069-5fbd57cde0f6.png",
-      tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-      link: "#",
+      title: "Financial App",
+      description: "A financial app for user have passive income, earn money just ads watching.",
+      image: "../../public/el.png",
+      tech: ["React Native", "TypeScript", "SCSS", "Express.js", "MSQL"],
+      link: "https://eldorado777.online/",
     },
     {
-      title: "Mobile Finance App",
-      description: "Cross-platform mobile application for personal finance management with expense tracking and budget planning.",
-      image: "https://mgx-backend-cdn.metadl.com/generate/images/964620/2026-02-11/deb271ab-3db8-4769-82f2-2d7199f149ac.png",
-      tech: ["React Native", "TypeScript", "Redux"],
-      link: "#",
+      title: "Movie Admin Side",
+      description: "Java desktop app, for admin can control website, add movie, remove and full website control",
+      image: "../../public/java_admin.png",
+      tech: ["Java", "Java FX"],
+      link: "https://github.com/GabrielLomtatidze/java_project",
     },
     {
-      title: "Team Collaboration Platform",
-      description: "Real-time collaboration tool for remote teams with project management, chat, and file sharing capabilities.",
-      image: "https://mgx-backend-cdn.metadl.com/generate/images/964620/2026-02-11/1641920b-5fbe-4a5e-9536-e971a7382a6a.png",
-      tech: ["Next.js", "Express.js", "Socket.io", "PostgreSQL"],
-      link: "#",
-    },
-  ];
-
-  const experiences = [
-    {
-      year: "2024 - Present",
-      title: "Full Stack Developer",
-      company: "Freelance & Team Projects",
-      description: "Working on various web and mobile applications, collaborating with international teams on complex projects.",
-    },
-    {
-      year: "2023 - 2024",
-      title: "Frontend Developer",
-      company: "Tech Startup",
-      description: "Developed responsive web applications using React and Next.js, implemented modern UI/UX designs.",
-    },
-    {
-      year: "2022 - 2023",
-      title: "Junior Developer",
-      company: "Software Agency",
-      description: "Started professional journey building websites and learning industry best practices.",
+      title: "Mobile online market",
+      description: "University finial php project, user and admin side, user can make buy online, admin have full control.",
+      image: "../../public/xiaomi.png",
+      tech: ["Php", "SCSS", "MySQL"],
+      link: "https://github.com/GabrielLomtatidze/php_project#",
     },
   ];
 
@@ -112,6 +118,11 @@ export default function Portfolio() {
       },
     },
   };
+
+``
+  const birthDate = new Date(2006, 3, 9);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white overflow-hidden">
@@ -137,15 +148,14 @@ export default function Portfolio() {
               Portfolio
             </motion.div>
             <div className="hidden md:flex gap-8">
-              {["home", "about", "skills", "projects", "experience", "contact"].map((section) => (
+              {["home", "about", "skills", "projects", "contact"].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all duration-300 ${
-                    activeSection === section
-                      ? "text-blue-400 font-semibold"
-                      : "text-gray-400 hover:text-white"
-                  }`}
+                  className={`capitalize transition-all duration-300 ${activeSection === section
+                    ? "text-blue-400 font-semibold"
+                    : "text-gray-400 hover:text-white"
+                    }`}
                 >
                   {section}
                 </button>
@@ -177,13 +187,21 @@ export default function Portfolio() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="mb-6 inline-block"
             >
-              <Sparkles className="w-16 h-16 text-blue-400 animate-pulse" />
+              <KeyboardIcon className="w-16 h-16 text-blue-400 animate-pulse" />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-6xl md:text-8xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+            >
+              Gabriel Lomtatidze
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-3xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
             >
               Full Stack Developer
             </motion.h1>
@@ -193,7 +211,7 @@ export default function Portfolio() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
             >
-              3 Years of Experience | Computer Science Student | European University
+              3 Years of Experience
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -261,7 +279,7 @@ export default function Portfolio() {
                 className="space-y-6"
               >
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I'm a passionate full stack developer from Georgia with 3 years of professional experience in building modern web and mobile applications. Currently pursuing Computer Science at a European University, I combine academic knowledge with real-world expertise.
+                  I'm a Gabriel Lomtatidze {age} years. Full stack developer from Georgia with 3 years of professional experience in building modern web and mobile applications. Currently pursuing Computer Science at a European University, I combine academic knowledge with real-world expertise.
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
                   My journey in software development has been driven by curiosity and a love for creating elegant solutions to complex problems. I've worked on diverse projects both independently and as part of international teams, delivering high-quality applications that users love.
@@ -437,6 +455,7 @@ export default function Portfolio() {
                       <Button
                         variant="outline"
                         className="w-full border-blue-500 text-blue-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:border-transparent transition-all"
+                        onClick={() => window.open("https://play.google.com/store/apps/details?id=com.gl999.appeldorado", "_blank")}
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         View Project
@@ -450,44 +469,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Timeline */}
-      <section id="experience" className="py-32 relative">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Experience
-            </h2>
-            <div className="max-w-3xl mx-auto">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={exp.title}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative pl-8 pb-12 border-l-2 border-blue-500/30 last:pb-0 group"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.5 }}
-                    className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 border-4 border-slate-950"
-                  />
-                  <div className="bg-slate-900/50 p-6 rounded-lg border border-blue-500/30 hover:border-blue-500 transition-all duration-300 backdrop-blur-sm hover:shadow-xl hover:shadow-blue-500/20">
-                    <div className="text-blue-400 font-semibold mb-2">{exp.year}</div>
-                    <h3 className="text-2xl font-bold mb-1">{exp.title}</h3>
-                    <div className="text-gray-400 mb-3">{exp.company}</div>
-                    <p className="text-gray-300">{exp.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-32 relative">
@@ -510,9 +491,10 @@ export default function Portfolio() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
+                  <form ref={form} onSubmit={sendEmail} className="space-y-6">
                     <div>
                       <Input
+                        name="user_name"
                         placeholder="Your Name"
                         className="bg-slate-950/50 border-blue-500/30 focus:border-blue-500 text-white placeholder:text-gray-500"
                       />
@@ -520,18 +502,23 @@ export default function Portfolio() {
                     <div>
                       <Input
                         type="email"
+                        name="user_email"
                         placeholder="Your Email"
                         className="bg-slate-950/50 border-blue-500/30 focus:border-blue-500 text-white placeholder:text-gray-500"
                       />
                     </div>
                     <div>
                       <Textarea
+                        name="message"
                         placeholder="Your Message"
                         rows={5}
                         className="bg-slate-950/50 border-blue-500/30 focus:border-blue-500 text-white placeholder:text-gray-500"
                       />
                     </div>
-                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-6 shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all">
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-6 shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all"
+                    >
                       Send Message
                     </Button>
                   </form>
@@ -540,6 +527,7 @@ export default function Portfolio() {
                       whileHover={{ scale: 1.2, rotate: 5 }}
                       href="#"
                       className="text-gray-400 hover:text-blue-400 transition-colors"
+                      onClick={() => window.open("https://github.com/GabrielLomtatidze", "_blank")}
                     >
                       <Github className="w-6 h-6" />
                     </motion.a>
@@ -547,6 +535,7 @@ export default function Portfolio() {
                       whileHover={{ scale: 1.2, rotate: 5 }}
                       href="#"
                       className="text-gray-400 hover:text-blue-400 transition-colors"
+                      onClick={() => window.open("https://ge.linkedin.com/in/gabriel-lomtatidze-3136b3296", "_blank")}
                     >
                       <Linkedin className="w-6 h-6" />
                     </motion.a>
@@ -554,8 +543,9 @@ export default function Portfolio() {
                       whileHover={{ scale: 1.2, rotate: 5 }}
                       href="#"
                       className="text-gray-400 hover:text-blue-400 transition-colors"
+                      onClick={() => window.open("https://www.instagram.com/Lomtatidze__", "_blank")}
                     >
-                      <Mail className="w-6 h-6" />
+                      <Instagram className="w-6 h-6" />
                     </motion.a>
                   </div>
                 </CardContent>
@@ -564,11 +554,10 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-8 bg-slate-950/80 border-t border-blue-500/20 backdrop-blur-xl">
         <div className="container mx-auto px-6 text-center text-gray-400">
-          <p>&copy; 2026 Portfolio. Built with React, TypeScript, Tailwind CSS & Framer Motion.</p>
+          <p>&copy; 2026 Portfolio. Built with React, TypeScript, Tailwind CSS & Framer Motion. :)</p>
         </div>
       </footer>
     </div>
