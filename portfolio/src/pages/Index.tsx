@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, KeyboardIcon, Instagram } from "lucide-react";
+import { Github, Linkedin, ExternalLink, ChevronDown, Code2, KeyboardIcon, Instagram } from "lucide-react";
 import { Button } from "../../src/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../src/components/ui/card";
 import { Badge } from "../../src/components/ui/badge";
