@@ -455,7 +455,7 @@ export default function Portfolio() {
                       <Button
                         variant="outline"
                         className="w-full border-blue-500 text-blue-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:border-transparent transition-all"
-                        onClick={() => window.open("https://play.google.com/store/apps/details?id=com.gl999.appeldorado", "_blank")}
+                        onClick={() => window.open(`${project.link}`, "_blank")}
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         View Project
