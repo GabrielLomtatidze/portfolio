@@ -73,28 +73,47 @@ export default function Portfolio() {
     backend: ["Express.js", "PHP", "Node.js"],
     languages: ["Python", "Java"],
   };
-
   const projects = [
     {
       title: "Financial App",
-      description: "A financial app for user have passive income, earn money just ads watching.",
+      description:
+        "A financial app where users can earn passive income by watching ads.",
       image: "/el.png",
-      tech: ["React Native", "TypeScript", "SCSS", "Express.js", "MSQL"],
+      tech: ["React Native", "TypeScript", "SCSS", "Express.js", "MySQL"],
       link: "https://eldorado777.online/",
     },
     {
       title: "Movie Admin Side",
-      description: "Java desktop app, for admin can control website, add movie, remove and full website control",
+      description:
+        "Java desktop app for admins to control the website, add or remove movies, and manage the entire platform.",
       image: "/java_admin.png",
       tech: ["Java", "Java FX"],
       link: "https://github.com/GabrielLomtatidze/java_project",
     },
     {
-      title: "Mobile online market",
-      description: "University finial php project, user and admin side, user can make buy online, admin have full control.",
+      title: "Mobile Online Market",
+      description:
+        "University final PHP project with user and admin panels. Users can shop online while admins have full control of the system.",
       image: "/xiaomi.png",
-      tech: ["Php", "SCSS", "MySQL"],
+      tech: ["PHP", "SCSS", "MySQL"],
       link: "https://github.com/GabrielLomtatidze/php_project#",
+    },
+
+    {
+      title: "GURULEBi",
+      description:
+        "Hotel review website where users can explore hotels, leave reviews, rate services, and share their travel experiences.",
+      image: "/gurulebi.png",
+      tech: ["Next Js", "TypeScript", "Node.js",],
+      link: "https://gurulebi-gurulebi.netlify.app/",
+    },
+    {
+      title: "GHlonti",
+      description:
+        "Business website for iron craftsmen showcasing custom iron doors, gates, railings, letters, and metal works.",
+      image: "/ghlonti.png",
+      tech: ["React", "SCSS", "Express.js",],
+      link: "https://ghlonti.netlify.app/",
     },
   ];
 
@@ -119,7 +138,7 @@ export default function Portfolio() {
     },
   };
 
-``
+  ``
   const birthDate = new Date(2006, 3, 9);
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -454,7 +473,7 @@ export default function Portfolio() {
                       </div>
                       <Button
                         variant="outline"
-                        className="w-full border-blue-500 text-blue-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:border-transparent transition-all"
+                        className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white border-transparent transition-all"
                         onClick={() => window.open(`${project.link}`, "_blank")}
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
