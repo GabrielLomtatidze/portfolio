@@ -75,6 +75,30 @@ export default function Portfolio() {
   };
   const projects = [
     {
+      title: "GURULEBi",
+      description:
+        "Hotel review website where users can explore hotels, leave reviews, rate services, and share their travel experiences.",
+      image: "/gurulebi.png",
+      tech: ["Next Js", "TypeScript", "Node.js",],
+      link: "https://gurulebi-gurulebi.netlify.app/",
+    },
+    {
+      title: "Ghlonti",
+      description:
+        "Business website for iron craftsmen showcasing custom iron doors, gates, railings, letters, and metal works.",
+      image: "/ghlonti.png",
+      tech: ["React", "SCSS", "Express.js",],
+      link: "https://ghlonti.netlify.app/",
+    },
+    {
+      title: "Market Zone",
+      description:
+        "Online marketplace website where users can browse products, shop online, and manage their purchases.",
+      image: "/marketzone.png",
+      tech: ["Next Js", "SCSS"],
+      link: "https://formarket.netlify.app/",
+    },
+    {
       title: "Financial App",
       description:
         "A financial app where users can earn passive income by watching ads.",
@@ -99,22 +123,6 @@ export default function Portfolio() {
       link: "https://github.com/GabrielLomtatidze/php_project#",
     },
 
-    {
-      title: "GURULEBi",
-      description:
-        "Hotel review website where users can explore hotels, leave reviews, rate services, and share their travel experiences.",
-      image: "/gurulebi.png",
-      tech: ["Next Js", "TypeScript", "Node.js",],
-      link: "https://gurulebi-gurulebi.netlify.app/",
-    },
-    {
-      title: "GHlonti",
-      description:
-        "Business website for iron craftsmen showcasing custom iron doors, gates, railings, letters, and metal works.",
-      image: "/ghlonti.png",
-      tech: ["React", "SCSS", "Express.js",],
-      link: "https://ghlonti.netlify.app/",
-    },
   ];
 
   const containerVariants = {
