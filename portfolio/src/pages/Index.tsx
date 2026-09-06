@@ -91,6 +91,14 @@ export default function Portfolio() {
       link: "https://ghlonti.netlify.app/",
     },
     {
+      title: "GegePerformace",
+      description:
+        "Auto tuning and performance website for GegePerformance, car tuning services, performance upgrades and automotive solutions.",
+      image: "/gege.png",
+      tech: ["React", "Tailwind CSS",],
+      link: "https://gegeperformance.netlify.app/",
+    },
+    {
       title: "Market Zone",
       description:
         "Online marketplace website where users can browse products, shop online, and manage their purchases.",
