@@ -246,7 +246,7 @@ export default function Portfolio() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
             >
-              3 Years of Experience
+              4 Years of Experience
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
