@@ -80,7 +80,7 @@ export default function Portfolio() {
         "Hotel review website where users can explore hotels, leave reviews, rate services, and share their travel experiences.",
       image: "/gurulebi.png",
       tech: ["Next Js", "TypeScript", "Node.js",],
-      link: "https://gurulebi-gurulebi.netlify.app/",
+      // link: "https://gurulebi-gurulebi.netlify.app/",
     },
     {
       title: "Ghlonti",
@@ -96,7 +96,7 @@ export default function Portfolio() {
         "Auto tuning and performance website for GegePerformance, car tuning services, performance upgrades and automotive solutions.",
       image: "/gege.png",
       tech: ["React", "Tailwind CSS",],
-      link: "https://gegeperformance.netlify.app/",
+      // link: "https://gegeperformance.netlify.app/",
     },
     {
       title: "Market Zone",
@@ -104,7 +104,7 @@ export default function Portfolio() {
         "Online marketplace website where users can browse products, shop online, and manage their purchases.",
       image: "/marketzone.png",
       tech: ["Next Js", "SCSS"],
-      link: "https://formarket.netlify.app/",
+      // link: "https://formarket.netlify.app/",
     },
     {
       title: "Financial App",
@@ -112,7 +112,7 @@ export default function Portfolio() {
         "A financial app where users can earn passive income by watching ads.",
       image: "/el.png",
       tech: ["React Native", "TypeScript", "SCSS", "Express.js", "MySQL"],
-      link: "https://eldorado777.online/",
+      // link: "https://eldorado777.online/",
     },
     {
       title: "Movie Admin Side",
@@ -120,7 +120,7 @@ export default function Portfolio() {
         "Java desktop app for admins to control the website, add or remove movies, and manage the entire platform.",
       image: "/java_admin.png",
       tech: ["Java", "Java FX"],
-      link: "https://github.com/GabrielLomtatidze/java_project",
+      // link: "https://github.com/GabrielLomtatidze/java_project",
     },
     {
       title: "Mobile Online Market",
@@ -128,7 +128,7 @@ export default function Portfolio() {
         "University final PHP project with user and admin panels. Users can shop online while admins have full control of the system.",
       image: "/xiaomi.png",
       tech: ["PHP", "SCSS", "MySQL"],
-      link: "https://github.com/GabrielLomtatidze/php_project#",
+      link: "",
     },
 
   ];
@@ -314,7 +314,7 @@ export default function Portfolio() {
                 className="space-y-6"
               >
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  I'm a Gabriel Lomtatidze {age} years. Full stack developer from Georgia with 3 years of professional experience in building modern web and mobile applications. Currently pursuing Computer Science at a European University, I combine academic knowledge with real-world expertise.
+                  I'm a Gabriel Lomtatidze {age} years. Full stack developer from Georgia with 4 years of professional experience in building modern web and mobile applications. Currently pursuing Computer Science at a European University, I combine academic knowledge with real-world expertise.
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
                   My journey in software development has been driven by curiosity and a love for creating elegant solutions to complex problems. I've worked on diverse projects both independently and as part of international teams, delivering high-quality applications that users love.
